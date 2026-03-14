@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Teacher Rating</title>
+<style>
+body{
+background:gray;
+text-align:center;
+margin-top:100px;
+}
+.box{
+background:white;
+padding:20px;
+width:300px;
+margin:auto;
+}
+input,button{
+width:90%;
+padding:8px;
+margin:5px;
+}
+button {
+    background-color: skyblue;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+<div class="button"></div>
+<h2>Teacher Rating</h2>
+
+<input type="text" id="student" placeholder="Student Name">
+<input type="text" id="teacher" placeholder="Teacher Name">
+<input type="number" id="rate" placeholder="Rating">
+<button onclick="checkratings()">Submit</button>
+<h3 id="result"></h3>
+
+<script>
+function checkratings(){
+
+    let teacher = document.getElementById("teacher").value;
+    let student = document.getElementById("student").value;
+    let ratings = document.getElementById("rate").value;
+
+    let result = "";
+
+    if (ratings < 50){
+        result = "LAWLAW!";
+    }else {
+        result = "SAGAD BA!";
+    }
+
+    document.getElementById("result").innerHTML =
+    "teacher: " + teacher + "<br>" +
+    "student: " + student + "<br>" +
+    "ratings: " + ratings + "<br>" +
+    "result: " + result; 
+}
+</script>
+
+<script>
+if ('serviceWorker' in navigator){
+    navigator.serviceWorker.register('service-worker.js');
+}
+</script>
+
+</div>
+
+</body>
+</html>
